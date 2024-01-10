@@ -1,0 +1,15 @@
+# This is a TOML document.
+
+[owner]
+name = "Ziv"
+
+[project]
+name = "iomt_http_server"
+dob = "2023-06"
+version = "0.0.0.0"
+log = 5        # DEBUG: 5, INFO: 4, WARNING: 3, ERROR: 2, FATAL: 1
+status = "dev" # release, dev
+
+[http]
+port = "8123"
+address = "localhost"

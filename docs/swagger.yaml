@@ -1,0 +1,82 @@
+info:
+  contact: {}
+paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      description: Hello World
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Hello
+      tags:
+      - Hello
+  /deviceinfo:
+    get:
+      consumes:
+      - application/json
+      description: Get Device Info
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Get Device Info
+      tags:
+      - Get Device Info
+  /heartbeat:
+    get:
+      consumes:
+      - application/json
+      description: Heartbeat
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Heartbeat
+      tags:
+      - Heartbeat
+  /job:
+    post:
+      consumes:
+      - application/json
+      description: Create A Job
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Create A Job
+      tags:
+      - Create A Job
+  /job/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete A Job
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete A Job
+      tags:
+      - Delete A Job
+  /result/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get Result
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Get Result
+      tags:
+      - Get Result
+swagger: "2.0"
