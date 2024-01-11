@@ -36,8 +36,9 @@ func Heartbeat(c *fiber.Ctx) error {
 // @Tags			Notify
 // @Accept			json
 // @Produce		json
+// @Param payload body request.Notify true "payload"
 // @Success		200
-// @Router			/Notify [get]
+// @Router			/Notify [post]
 func Notify(c *fiber.Ctx) error {
 	var payload request.Notify
 	err := c.BodyParser(&payload)

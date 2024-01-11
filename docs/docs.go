@@ -35,9 +35,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/deviceinfo": {
-            "get": {
-                "description": "Get Device Info",
+        "/Notify": {
+            "post": {
+                "description": "Notify",
                 "consumes": [
                     "application/json"
                 ],
@@ -45,9 +45,20 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Get Device Info"
+                    "Notify"
                 ],
-                "summary": "Get Device Info",
+                "summary": "Notify",
+                "parameters": [
+                    {
+                        "description": "payload",
+                        "name": "payload",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.Notify"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -74,64 +85,17 @@ const docTemplate = `{
                     }
                 }
             }
-        },
-        "/job": {
-            "post": {
-                "description": "Create A Job",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Create A Job"
-                ],
-                "summary": "Create A Job",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/job/:id": {
-            "delete": {
-                "description": "Delete A Job",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Delete A Job"
-                ],
-                "summary": "Delete A Job",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/result/:id": {
-            "get": {
-                "description": "Get Result",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Get Result"
-                ],
-                "summary": "Get Result",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
+        }
+    },
+    "definitions": {
+        "request.Notify": {
+            "type": "object",
+            "properties": {
+                "organization": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
                 }
             }
         }

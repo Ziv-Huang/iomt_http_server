@@ -1,3 +1,11 @@
+definitions:
+  request.Notify:
+    properties:
+      organization:
+        type: string
+      phone:
+        type: string
+    type: object
 info:
   contact: {}
 paths:
@@ -14,19 +22,26 @@ paths:
       summary: Hello
       tags:
       - Hello
-  /deviceinfo:
-    get:
+  /Notify:
+    post:
       consumes:
       - application/json
-      description: Get Device Info
+      description: Notify
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.Notify'
       produces:
       - application/json
       responses:
         "200":
           description: OK
-      summary: Get Device Info
+      summary: Notify
       tags:
-      - Get Device Info
+      - Notify
   /heartbeat:
     get:
       consumes:
@@ -40,43 +55,4 @@ paths:
       summary: Heartbeat
       tags:
       - Heartbeat
-  /job:
-    post:
-      consumes:
-      - application/json
-      description: Create A Job
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-      summary: Create A Job
-      tags:
-      - Create A Job
-  /job/:id:
-    delete:
-      consumes:
-      - application/json
-      description: Delete A Job
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-      summary: Delete A Job
-      tags:
-      - Delete A Job
-  /result/:id:
-    get:
-      consumes:
-      - application/json
-      description: Get Result
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-      summary: Get Result
-      tags:
-      - Get Result
 swagger: "2.0"
