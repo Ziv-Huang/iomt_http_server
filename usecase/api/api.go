@@ -7,18 +7,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-// @Summary		Hello
-// @Description	Hello World
-// @Tags			Hello
-// @Accept			json
-// @Produce		json
-// @Success		200
-// @Router			/ [get]
-func Hello(c *fiber.Ctx) error {
-	c.Status(200)
-	return c.SendString("Hello, World 👋!")
-}
-
 // @Summary		Heartbeat
 // @Description	Heartbeat
 // @Tags			Heartbeat
@@ -49,6 +37,18 @@ func Notify(c *fiber.Ctx) error {
 	c.Status(200)
 	return c.SendString(fmt.Sprintf("Phone: %s, Organization: %s", payload.Phone, payload.Organization))
 }
+
+// // @Summary		Hello
+// // @Description	Hello World
+// // @Tags			Hello
+// // @Accept			json
+// // @Produce		json
+// // @Success		200
+// // @Router			/ [get]
+// func Hello(c *fiber.Ctx) error {
+// 	c.Status(200)
+// 	return c.SendString("Hello, World 👋!")
+// }
 
 // // @Summary		Get Device Info
 // // @Description	Get Device Info

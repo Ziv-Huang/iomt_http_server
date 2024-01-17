@@ -9,19 +9,6 @@ definitions:
 info:
   contact: {}
 paths:
-  /:
-    get:
-      consumes:
-      - application/json
-      description: Hello World
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-      summary: Hello
-      tags:
-      - Hello
   /Notify:
     post:
       consumes:

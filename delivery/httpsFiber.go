@@ -45,7 +45,7 @@ func (s *httpFiber) Start() {
 		app := fiber.New()
 
 		// Fiber operations
-		app.Get("/", api.Hello)
+		// app.Get("/", api.Hello)
 		app.Get("/heartbeat", api.Heartbeat)
 		app.Post("/notify", api.Notify)
 		// app.Get("/deviceinfo", api.GetDeviceInfo)
