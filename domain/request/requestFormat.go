@@ -5,6 +5,10 @@ type Notify struct {
 	Organization string `bson:"organization" json:"organization"`
 }
 
+type IoMTStatus struct {
+	Suspend bool `bson:"suspend" json:"suspend"`
+}
+
 // const (
 // 	Running  = "Running"
 // 	Pending  = "Pending"

@@ -19,6 +19,7 @@ type Project struct {
 }
 
 type Http struct {
-	Port    string `mapstructure:"port"`
-	Address string `mapstructure:"address"`
+	Port     string `mapstructure:"port"`
+	Address  string `mapstructure:"address"`
+	Waittime int    `mapstructure:"waittime"`
 }

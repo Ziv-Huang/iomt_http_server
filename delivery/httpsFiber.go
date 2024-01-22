@@ -14,11 +14,12 @@ import (
 
 type httpFiber struct {
 	Wg     *sync.WaitGroup
-	Config configs.Configuration
+	config configs.Configuration
+	api    api.API
 }
 
 func NewHttpFiber(wg *sync.WaitGroup, config configs.Configuration) *httpFiber {
-	return &httpFiber{Wg: wg, Config: config}
+	return &httpFiber{Wg: wg, config: config, api: api.NewAPI(config)}
 }
 
 // @title Fiber Swagger Example API
@@ -43,11 +44,17 @@ func (s *httpFiber) Start() {
 
 		// Fiber instance
 		app := fiber.New()
+		troom := app.Group("/api/v2/troom")
+		phone := troom.Group("/phone")
+		bulletin := troom.Group("/bulletin")
 
 		// Fiber operations
+		app.Get("/heartbeat", s.api.Heartbeat)
+		bulletin.Get("iomt_status", s.api.IoMT_status)
+		phone.Post("iomt_task", s.api.IoMT_task)
+
 		// app.Get("/", api.Hello)
-		app.Get("/heartbeat", api.Heartbeat)
-		app.Post("/notify", api.Notify)
+		// app.Post("/notify", api.Notify)
 		// app.Get("/deviceinfo", api.GetDeviceInfo)
 		// app.Get("/result/:id", api.GetResultByID)
 		// app.Post("/job", api.CreateAJob)
@@ -57,7 +64,7 @@ func (s *httpFiber) Start() {
 		app.Get("/swagger/*", fiberSwagger.WrapHandler)
 
 		// Start server
-		app.Listen(":" + s.Config.Http.Port)
+		app.Listen(":" + s.config.Http.Port)
 	}()
 
 }

@@ -1,34 +1,32 @@
-definitions:
-  request.Notify:
-    properties:
-      organization:
-        type: string
-      phone:
-        type: string
-    type: object
 info:
   contact: {}
 paths:
-  /Notify:
-    post:
+  /api/v2/troom/bulletin/IoMT_status:
+    get:
       consumes:
       - application/json
-      description: Notify
-      parameters:
-      - description: payload
-        in: body
-        name: payload
-        required: true
-        schema:
-          $ref: '#/definitions/request.Notify'
+      description: IoMT_status
       produces:
       - application/json
       responses:
         "200":
           description: OK
-      summary: Notify
+      summary: IoMT_status
       tags:
-      - Notify
+      - IoMT_status
+  /api/v2/troom/phone/IoMT_task:
+    post:
+      consumes:
+      - application/json
+      description: IoMT_task
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: IoMT_task
+      tags:
+      - IoMT_task
   /heartbeat:
     get:
       consumes:

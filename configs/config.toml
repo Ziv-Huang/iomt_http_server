@@ -13,3 +13,4 @@ status = "dev" # release, dev
 [http]
 port = "8123"
 address = "localhost"
+waittime = 5
