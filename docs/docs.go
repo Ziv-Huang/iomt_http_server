@@ -15,9 +15,9 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/Notify": {
-            "post": {
-                "description": "Notify",
+        "/api/v2/troom/bulletin/IoMT_status": {
+            "get": {
+                "description": "IoMT_status",
                 "consumes": [
                     "application/json"
                 ],
@@ -25,20 +25,29 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Notify"
+                    "IoMT_status"
                 ],
-                "summary": "Notify",
-                "parameters": [
-                    {
-                        "description": "payload",
-                        "name": "payload",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/request.Notify"
-                        }
+                "summary": "IoMT_status",
+                "responses": {
+                    "200": {
+                        "description": "OK"
                     }
+                }
+            }
+        },
+        "/api/v2/troom/phone/IoMT_task": {
+            "post": {
+                "description": "IoMT_task",
+                "consumes": [
+                    "application/json"
                 ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "IoMT_task"
+                ],
+                "summary": "IoMT_task",
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -63,19 +72,6 @@ const docTemplate = `{
                     "200": {
                         "description": "OK"
                     }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "request.Notify": {
-            "type": "object",
-            "properties": {
-                "organization": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
                 }
             }
         }
