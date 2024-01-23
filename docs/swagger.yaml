@@ -1,3 +1,11 @@
+definitions:
+  request.Notify:
+    properties:
+      organization:
+        type: string
+      phone:
+        type: string
+    type: object
 info:
   contact: {}
 paths:
@@ -19,6 +27,13 @@ paths:
       consumes:
       - application/json
       description: IoMT_task
+      parameters:
+      - description: payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/request.Notify'
       produces:
       - application/json
       responses:

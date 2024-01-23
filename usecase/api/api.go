@@ -43,6 +43,7 @@ func (a *api) Heartbeat(c *fiber.Ctx) error {
 // @Tags			IoMT_task
 // @Accept			json
 // @Produce		json
+// @Param payload body request.Notify true "payload"
 // @Success		200
 // @Router			/api/v2/troom/phone/IoMT_task [post]
 func (a *api) IoMT_task(c *fiber.Ctx) error {
